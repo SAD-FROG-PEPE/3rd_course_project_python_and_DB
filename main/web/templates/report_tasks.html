@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/reports_style.css')}}">
+{% endblock styles %}
+
+{% block content %}
+<form action="" method="POST">
+    <div class="wrapper">
+        <div class="field">
+            <label for="">Укажите путь</label>
+            <input type="text" name="directory" id="">
+        </div>
+        <button>Создать отчет</button>
+    </div>
+</form>
+{% endblock content %}

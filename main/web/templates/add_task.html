@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/task_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/form_task.css') }}">
+{% endblock styles %}
+
+{% block content %}
+<form action="" class="current-task" method="POST">
+    <div class="task-name">
+        <h3><input type="text" name="name" placeholder="Название задачи"></h3>
+    </div>
+    <div class="task-description">
+        <textarea name="description" placeholder="Описание"></textarea>
+    </div>
+    <div class="task-info">
+        <div class="text">
+            <p>Дата создания: <input placeholder="YYYY-MM-DD"
+                name="date_creation" type="text"></p>
+            <p>Дата выполнения:<input disabled placeholder="null"
+                name="date_execution" type="text"></p>
+            <p>Дедлайн: <input placeholder="YYYY-MM-DD"
+                name="deadline_date" type="text"></p>
+            <p>Статус: <input disabled placeholder="false"
+                name="status" type="text"></p>
+            <p>Идентификатор исполнителя: <input placeholder="Целое число"
+                name="executor" type="text"></p>
+            <p>Идентификатор приоритета: <input placeholder="Целое число"
+                name="priority" type="text"></p>
+            <p>Идентификатор клиента: <input placeholder="Целое число"
+                name="client" type="text"></p>
+            <p>Идентификатор контракта: <input placeholder="Целое число/null"
+                name="contract_id" type="text"></p>
+        </div>
+        <div class="button">
+            <button>Добавить</button>
+        </div>
+    </div>
+</form>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        window.onload = function() {
+            document.forms[0].elements.name.focus();
+        }
+    </script> 
+{% endblock scripts %}

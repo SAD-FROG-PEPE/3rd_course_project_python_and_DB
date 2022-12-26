@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    {% block styles %} {% endblock styles %}
+    <link type="text/css" href="{{ url_for('static', filename='styles/style.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="{{ url_for('index') }}"><i class="fa-solid fa-couch"></i> Furniture Company</a></h1>
+        </div>
+        <nav>
+            <ul>
+
+                {% if user.is_authenticated %}
+                    <li id="username">{{ user.username }}</li>
+                    <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login_page') }}">Вход</a></li>
+                    <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% if user.is_authenticated and manager %}
+        {% block functions %}
+        {% endblock functions %}
+    {% endif %}
+    <div class="container">
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
+
+    {% block scripts %} 
+    {% endblock scripts %}
+</body>
+</html>

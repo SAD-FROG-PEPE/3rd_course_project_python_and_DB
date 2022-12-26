@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/task_style.css') }}">
+{% endblock styles %}
+
+{% block content %}
+<div class="current-task">
+    <div class="task-name">
+        <h3>{{ task[1] }}</h3>
+    </div>
+    <div class="task-description">
+        <p>{{ task[2] }}</p>
+    </div>
+    <div class="task-info">
+        <div class="text">
+            <p>Дата создания: {{ task[3] }}</p>
+            <p>Дата выполнения: {{ task[4] }}</p>
+            <p>Дедлайн: {{ task[5] }}</p>
+            <p>Статус: {{ task[6] }}</p>
+            <p>Идентификатор автора: {{ task[7] }}</p>
+            <p>Идентификатор исполнителя: {{ task[8] }}</p>
+            <p>Идентификатор приоритета: {{ task[9] }}</p>
+            <p>Идентификатор клиента: {{ task[10] }}</p>
+            <p>Идентификатор контракта: {{ task[11] }}</p>
+        </div>
+        <div class="button">
+            <div><a href="{{ url_for('change_task', task_id=task[0]) }}">Изменить задачу</a></div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/user_style.css')}}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="record">
+            <p>Имя:</p>
+            <div>{{ record[1] }}</div>
+        </div>
+        <div class="record">
+            <p>Фамилия:</p>
+            <div>{{ record[3] }}</div>
+        </div>
+        <div class="record">
+            <p>Отчество:</p>
+            <div>{{ record[2] }}</div>
+        </div>
+        <div class="record">
+            <p>Телефон:</p>
+            <div>{{ record[4] }}</div>
+        </div>
+        <div class="record">
+            <p>Адрес:</p>
+            <div>{{ record[5] }}</div>
+        </div>
+        <div class="record">
+            <p>Почта:</p>
+            <div>{{ record[6] }}</div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+
+{% endblock scripts %}

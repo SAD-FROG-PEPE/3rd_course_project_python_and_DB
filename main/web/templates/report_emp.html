@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/reports_style.css')}}">
+{% endblock styles %}
+
+{% block content %}
+<form action="" method="POST">
+    <div class="wrapper">
+        <div class="field">
+            <label for="">Идентификатор сотрудника</label>
+            <input type="text" name="emp_id" id="">
+        </div>
+        <div class="field">
+            <label for="">Начальный период</label>
+            <input type="text" name="start_period" id="">
+        </div>
+        <div class="field">
+            <label for="">Конечный период</label>
+            <input type="text" name="end_period" id="">
+        </div>
+        <div class="field">
+            <label for="">Директория</label>
+            <input type="text" name="directory" id="">
+        </div>
+        <button>Создать отчет</button>
+    </div>
+</form>
+{% endblock content %}

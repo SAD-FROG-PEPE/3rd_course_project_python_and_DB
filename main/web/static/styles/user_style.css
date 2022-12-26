@@ -1,0 +1,10 @@
+.record {
+    display: flex;
+    gap: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.record p {
+    color: #17888D;
+    font-weight: 500;
+}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/task_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/form_task.css') }}">
+{% endblock styles %}
+
+{% block content %}
+<form action="" class="current-task" method="POST">
+    <div class="task-name">
+        <h3><input type="text" name="name" placeholder="Название задачи"
+            value="{{ task[1] }}"></h3>
+    </div>
+    <div class="task-description">
+        <textarea name="description" placeholder="Описание">{{ task[2] }}</textarea>
+    </div>
+    <div class="task-info">
+        <div class="text">
+            <p>Дата создания: <input disabled placeholder="YYYY-MM-DD"
+                name="date_creation" type="text" value="{{ task[3] }}"></p>
+            <p>Дата выполнения:<input placeholder="YYYY-MM-DD"
+                name="date_execution" type="text" value="{{ task[4] }}"></p>
+            <p>Дедлайн: <input disabled placeholder="YYYY-MM-DD"
+                name="deadline_date" type="text" value="{{ task[5] }}"></p>
+            <p>Статус: <input placeholder="true/false"
+                name="status" type="text" value="{{ task[6] }}"></p>
+            <p>Идентификатор автора: <input disabled placeholder="Целое число"
+                 name="author" type="text" value="{{ task[7] }}"></p>
+            <p>Идентификатор исполнителя: <input placeholder="Целое число"
+                name="executor" type="text" value="{{ task[8] }}"></p>
+            <p>Идентификатор приоритета: <input placeholder="Целое число"
+                name="priority" type="text" value="{{ task[9] }}"></p>
+            <p>Идентификатор клиента: <input placeholder="Целое число"
+                name="client" type="text" value="{{ task[10] }}"></p>
+            <p>Идентификатор контракта: <input placeholder="Целое число/null"
+                name="contract" type="text" value="{{ task[11] }}"></p>
+        </div>
+        <div class="button">
+            <button>Сохранить изменения</button>
+        </div>
+    </div>
+</form>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        window.onload = function() {
+            document.forms[1].elements.name.focus();
+        }
+    </script> 
+{% endblock scripts %}

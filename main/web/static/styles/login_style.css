@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;700&display=swap');
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif; 
+*/
+
+body {
+    background-color: #B6C6F0;
+}
+
+form {
+    width: 30%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px;
+    font-size: 12px;
+    border-radius: 8px;
+    background-color: #5F7CC6;
+}
+
+.field_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 60%;
+}
+
+.field label {
+    display: block;
+    font-size: 1.7em;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #B6C6F0;
+}
+
+.field input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5em;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif; 
+    border: none;
+    background-color: #869FDD;
+
+}
+
+.field input:focus {
+    outline: none;
+}
+
+.field button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #9D87DE;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #5F43B1;
+    font-size: 1.5em;
+    text-align: center;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.field button:hover {
+    color: #9D87DE;
+    background-color: #5F43B1;
+}

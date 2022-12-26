@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block functions %}
+<div class="functions">
+    <div class="button">
+        <div><a href="{{ url_for('generate_report_emps') }}">Генерация отчета о сотрудниках</a></div>
+        <div><a href="{{ url_for('generate_tasks') }}">Генерация отчета о задачах</a></div>
+        <div><a href="{{ url_for('add_task') }}">Добавить задачу</a></div>
+    </div>
+    <div class="search">
+        <form action="" method="POST">
+            <input type="text" placeholder="Введите id клиента" name="search" id="">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+</div>
+{% endblock functions %}
+{% block content %}
+    {% if tasks and user %}
+        <h2>Текущие задачи</h2>
+        <div class="tasks">
+            {% for task in tasks %}
+                <div class="task" data-status="{{ task[6]}}" 
+                    data-link="{{ url_for('show_task', task_id=task[0]) }} ">
+                    <div class="task-name">
+                        <h3>{{ task[1]}}</h3>
+                    </div>
+                    <div class="short-description">
+                        <div class="text">
+                            <p>Дата создания: {{ task[3]}}</p>
+                            <p>Дедлайн: {{ task[5]}}</p>
+                            <p>Статус: {{ task[6]}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% elif user.is_authenticated %}
+        <h2>Текущие задачи</h2>
+         <h3>Еще нет задач от руководства</h3>
+    {% else %}
+        <h2>Добро пожаловать! Для работы с базой данных авторизуйтесь.</h2>
+    {% endif %}
+{% endblock content %}
+
+{% block scripts %}
+    <script src="js/script.js"></script>
+{% endblock scripts %}
